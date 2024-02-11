@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Generated Password</title>
+    <link rel="stylesheet" href="gen.css">
+</head>
+<body>
+    <h1>Generated Password</h1>
+    <p id="password">{{ password }}</p>
+    <button onclick="generateNewPassword()">Generate New Password</button>
+    <script>
+        function generateNewPassword() {
+            // Send a request to the Flask endpoint to generate a new password
+            fetch('/new-password')
+                .then(response => response.text())
+                .then(password => {
+                    // Update the password display with the newly generated password
+                    document.getElementById('password').innerText = password;
+                });
+        }
+    </script>
+</body>
+</html>
